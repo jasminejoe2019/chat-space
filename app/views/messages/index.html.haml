@@ -19,33 +19,7 @@
         .right-header__button
           Edit
     .messages
-      .message
-        .upper-message
-          .upper-message__user-name
-            ホンドタヌキ
-          .upper-message__date
-            2019/09/30
-        .lower-meesage
-          .lower-message__content
-            ぽんぽこ
-      .message
-        .upper-message
-          .upper-message__user-name
-            ザトウクジラ
-          .upper-message__date
-            2017/10/02
-        .lower-meesage
-          .lower-message__content
-            動物園出身です
-      .message
-        .upper-message
-          .upper-message__user-name
-            シベリアンハスキー
-          .upper-message__date
-            2019/10/01
-        .lower-meesage
-          .lower-message__content
-            ポップコーン売ります
+      = render @messages
             
     .form
       = form_for [@group, @message] do |f|
