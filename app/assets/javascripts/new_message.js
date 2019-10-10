@@ -1,4 +1,14 @@
 $(function(){
+  function buildHTML(message){
+    var html = `<p>
+                  <strong>
+                    <a href=/users/${message.user_id}>${message.user_name}</a>
+                    ：
+                  </strong>
+                  ${message.text}
+                </p>`
+    return html;
+  }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     console.log(this)
@@ -11,6 +21,12 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
+    })
+    .done(function(data){
+      // console.log(data)
+      var html = buildHTML(data);
+      $('.messages').append(html)
+      $('.textbox').val('')
     })
   })
 })
