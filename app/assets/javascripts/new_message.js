@@ -39,6 +39,10 @@ $(document).on('turbolinks:load ready page:load', function(){
       $('.messages').append(html);
       $('.new_message')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight });
+      $('.form__submit').attr('disabled',false);
+    })
+    .fail(function() {
+      alert('投稿ができませんでした');
     })
   })
 })
