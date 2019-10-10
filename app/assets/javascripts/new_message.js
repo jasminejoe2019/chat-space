@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load ready page:load', function(){
   function buildHTML(message){
     var html = 
  `<div class="message" id='${message.id}'>
@@ -20,7 +20,7 @@ $(function(){
 </div>`
     return html;
   }
-  $('#new_message').on('submit', function(e){
+  $('.new_message').on('submit', function(e){
     e.preventDefault();
     console.log(this)
     var formData = new FormData(this);
@@ -34,10 +34,11 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data)
+      // console.log(messages)
       var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.textbox').val('')
+      $('.messages').append(html);
+      $('.new_message')[0].reset();
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight });
     })
   })
 })
