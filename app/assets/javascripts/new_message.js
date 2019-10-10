@@ -22,7 +22,6 @@ $(document).on('turbolinks:load ready page:load', function(){
   }
   $('.new_message').on('submit', function(e){
     e.preventDefault();
-    console.log(this)
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -34,7 +33,6 @@ $(document).on('turbolinks:load ready page:load', function(){
       contentType: false
     })
     .done(function(data){
-      // console.log(messages)
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.new_message')[0].reset();
