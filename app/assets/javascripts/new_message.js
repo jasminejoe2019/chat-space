@@ -45,10 +45,8 @@ $('.new_message').on('submit', function(e){
  });
  var reloadMessages = function () {
   if (window.location.href.match(/\/groups\/\d+\/messages/)){
-    // console.log(/\/groups\/\d+\/messages/)
     var last_message_id = $('.message:last').data("message-id");
     var group_id = $(".group").data("group-id");
-    // console.log(last_message_id)
     $.ajax({
       url: "api/messages",
       type: 'get',
@@ -56,7 +54,6 @@ $('.new_message').on('submit', function(e){
       data: {last_id: last_message_id}
     })
     .done(function (messages) {
-      // console.log(messages)
       var insertHTML = '';
       messages.forEach(function (message) {
         insertHTML = buildHTML(message);
