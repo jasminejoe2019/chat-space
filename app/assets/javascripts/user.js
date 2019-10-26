@@ -1,5 +1,5 @@
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $(document).on("click", ".user-search-add", function () {
     var user_id = $(this).attr("data-user-id");
     var user_name = $(this).attr("data-user-name");
